@@ -1,0 +1,70 @@
+PODS:
+  - TapAdditionsKit/CoreGraphics/CGContext (1.0.4)
+  - TapAdditionsKit/CoreGraphics/CGImage (1.0.4):
+    - TapAdditionsKit/CoreGraphics/CGContext
+  - TapAdditionsKit/CoreGraphics/CGPoint (1.0.4)
+  - TapAdditionsKit/CoreGraphics/CGRect (1.0.4):
+    - TapAdditionsKit/CoreGraphics/CGPoint
+    - TapAdditionsKit/CoreGraphics/CGSize
+  - TapAdditionsKit/CoreGraphics/CGSize (1.0.4):
+    - TapAdditionsKit/SwiftStandartLibrary/Numeric
+  - TapAdditionsKit/Foundation/Locale (1.0.4)
+  - TapAdditionsKit/Foundation/NumberFormatter (1.0.4)
+  - TapAdditionsKit/ObjectiveC/NSObject (1.0.4)
+  - TapAdditionsKit/QuartzCore/CALayer (1.0.4)
+  - TapAdditionsKit/SwiftStandartLibrary/Array (1.0.4):
+    - TapAdditionsKit/SwiftStandartLibrary/Numeric
+  - TapAdditionsKit/SwiftStandartLibrary/Comparable (1.0.4)
+  - TapAdditionsKit/SwiftStandartLibrary/Int (1.0.4)
+  - TapAdditionsKit/SwiftStandartLibrary/MemoryLayout (1.0.4)
+  - TapAdditionsKit/SwiftStandartLibrary/Numeric (1.0.4)
+  - TapAdditionsKit/SwiftStandartLibrary/Sequence (1.0.4)
+  - TapAdditionsKit/SwiftStandartLibrary/String (1.0.4):
+    - TapAdditionsKit/Foundation/Locale
+    - TapAdditionsKit/Foundation/NumberFormatter
+    - TapAdditionsKit/SwiftStandartLibrary/Int
+  - TapAdditionsKit/Tap/Line (1.0.4):
+    - TapAdditionsKit/CoreGraphics/CGPoint
+  - TapAdditionsKit/Tap/Triangle (1.0.4):
+    - TapAdditionsKit/Tap/Line
+  - TapAdditionsKit/Tap/TypeAlias (1.0.4)
+  - TapAdditionsKit/UIKit/UIColor (1.0.4):
+    - TapAdditionsKit/SwiftStandartLibrary/Array
+    - TapAdditionsKit/SwiftStandartLibrary/Int
+    - TapAdditionsKit/SwiftStandartLibrary/String
+  - TapAdditionsKit/UIKit/UIImage (1.0.4):
+    - TapAdditionsKit/CoreGraphics/CGImage
+    - TapAdditionsKit/CoreGraphics/CGSize
+    - TapAdditionsKit/SwiftStandartLibrary/Array
+    - TapAdditionsKit/SwiftStandartLibrary/Sequence
+    - TapAdditionsKit/UIKit/UIColor
+  - TapAdditionsKit/UIKit/UIScreen (1.0.4)
+  - TapAdditionsKit/UIKit/UIView (1.0.4):
+    - TapAdditionsKit/ObjectiveC/NSObject
+    - TapAdditionsKit/QuartzCore/CALayer
+    - TapAdditionsKit/SwiftStandartLibrary/String
+    - TapAdditionsKit/Tap/TypeAlias
+    - TapAdditionsKit/UIKit/UIImage
+    - TapAdditionsKit/UIKit/UIScreen
+
+DEPENDENCIES:
+  - TapAdditionsKit/CoreGraphics/CGPoint
+  - TapAdditionsKit/CoreGraphics/CGRect
+  - TapAdditionsKit/CoreGraphics/CGSize
+  - TapAdditionsKit/SwiftStandartLibrary/Comparable
+  - TapAdditionsKit/SwiftStandartLibrary/MemoryLayout
+  - TapAdditionsKit/SwiftStandartLibrary/String
+  - TapAdditionsKit/Tap/Triangle
+  - TapAdditionsKit/UIKit/UIColor
+  - TapAdditionsKit/UIKit/UIView
+
+SPEC REPOS:
+  https://github.com/CocoaPods/Specs.git:
+    - TapAdditionsKit
+
+SPEC CHECKSUMS:
+  TapAdditionsKit: b924aba041033ea04e8d78bfa8dc11140f953012
+
+PODFILE CHECKSUM: 48d4ef0bb06ea58e53c6e77588115fd9727af687
+
+COCOAPODS: 1.5.0
