@@ -5,67 +5,67 @@
 //  Copyright © 2018 Tap Payments. All rights reserved.
 //
 
-import TapAdditionsKit
+import          TapAdditionsKit
 
-import struct CoreGraphics.CGBase.CGFloat
-import struct CoreGraphics.CGGeometry.CGPoint
-import struct CoreGraphics.CGGeometry.CGRect
-import struct CoreGraphics.CGGeometry.CGSize
-import class OpenGLES.EAGL.EAGLContext
-import struct OpenGLES.gltypes.GLenum
-import func OpenGLES.ES2.gl.glAttachShader
-import func OpenGLES.ES2.gl.glBindBuffer
-import func OpenGLES.ES2.gl.glBlendFunc
-import func OpenGLES.ES2.gl.glBufferData
-import func OpenGLES.ES2.gl.glClear
-import func OpenGLES.ES2.gl.glClearColor
-import func OpenGLES.ES2.gl.glCompileShader
-import func OpenGLES.ES2.gl.glCreateProgram
-import func OpenGLES.ES2.gl.glCreateShader
-import func OpenGLES.ES2.gl.glDepthFunc
-import func OpenGLES.ES2.gl.glDepthMask
-import func OpenGLES.ES2.gl.glDisable
-import func OpenGLES.ES2.gl.glDrawArrays
-import func OpenGLES.ES2.gl.glDeleteShader
-import func OpenGLES.ES2.gl.glEnable
-import func OpenGLES.ES2.gl.glEnableVertexAttribArray
-import func OpenGLES.ES2.gl.glGenBuffers
-import func OpenGLES.ES2.gl.glGetAttribLocation
-import func OpenGLES.ES2.gl.glGetProgramInfoLog
-import func OpenGLES.ES2.gl.glGetProgramiv
-import func OpenGLES.ES2.gl.glGetUniformLocation
-import func OpenGLES.ES2.gl.glLinkProgram
-import func OpenGLES.ES2.gl.glGetShaderInfoLog
-import func OpenGLES.ES2.gl.glGetShaderiv
-import func OpenGLES.ES2.gl.glShaderSource
-import func OpenGLES.ES2.gl.glUseProgram
-import func OpenGLES.ES2.gl.glVertexAttribPointer
-import var OpenGLES.ES2.gl.GL_ARRAY_BUFFER
-import var OpenGLES.ES2.gl.GL_BLEND
-import var OpenGLES.ES2.gl.GL_COLOR_BUFFER_BIT
-import var OpenGLES.ES2.gl.GL_COMPILE_STATUS
-import var OpenGLES.ES2.gl.GL_DEPTH_TEST
-import var OpenGLES.ES2.gl.GL_ELEMENT_ARRAY_BUFFER
-import var OpenGLES.ES2.gl.GL_FALSE
-import var OpenGLES.ES2.gl.GL_FLOAT
-import var OpenGLES.ES2.gl.GL_FRAGMENT_SHADER
-import var OpenGLES.ES2.gl.GL_INFO_LOG_LENGTH
-import var OpenGLES.ES2.gl.GL_LEQUAL
-import var OpenGLES.ES2.gl.GL_LINK_STATUS
-import var OpenGLES.ES2.gl.GL_ONE_MINUS_SRC_ALPHA
-import var OpenGLES.ES2.gl.GL_SRC_ALPHA
-import var OpenGLES.ES2.gl.GL_STATIC_DRAW
-import var OpenGLES.ES2.gl.GL_TRIANGLE_STRIP
-import var OpenGLES.ES2.gl.GL_VERTEX_SHADER
-import struct OpenGLES.ES2.gl.GLbitfield
-import struct OpenGLES.ES2.gl.GLboolean
-import struct OpenGLES.gltypes.GLchar
-import struct OpenGLES.gltypes.GLfloat
-import struct OpenGLES.gltypes.GLint
-import struct OpenGLES.gltypes.GLsizei
-import struct OpenGLES.gltypes.GLubyte
-import struct OpenGLES.gltypes.GLuint
-import class UIKit.UIColor.UIColor
+import struct   CoreGraphics.CGBase.CGFloat
+import struct   CoreGraphics.CGGeometry.CGPoint
+import struct   CoreGraphics.CGGeometry.CGRect
+import struct   CoreGraphics.CGGeometry.CGSize
+import class    OpenGLES.EAGL.EAGLContext
+import struct   OpenGLES.gltypes.GLenum
+import func     OpenGLES.ES2.gl.glAttachShader
+import func     OpenGLES.ES2.gl.glBindBuffer
+import func     OpenGLES.ES2.gl.glBlendFunc
+import func     OpenGLES.ES2.gl.glBufferData
+import func     OpenGLES.ES2.gl.glClear
+import func     OpenGLES.ES2.gl.glClearColor
+import func     OpenGLES.ES2.gl.glCompileShader
+import func     OpenGLES.ES2.gl.glCreateProgram
+import func     OpenGLES.ES2.gl.glCreateShader
+import func     OpenGLES.ES2.gl.glDepthFunc
+import func     OpenGLES.ES2.gl.glDepthMask
+import func     OpenGLES.ES2.gl.glDisable
+import func     OpenGLES.ES2.gl.glDrawArrays
+import func     OpenGLES.ES2.gl.glDeleteShader
+import func     OpenGLES.ES2.gl.glEnable
+import func     OpenGLES.ES2.gl.glEnableVertexAttribArray
+import func     OpenGLES.ES2.gl.glGenBuffers
+import func     OpenGLES.ES2.gl.glGetAttribLocation
+import func     OpenGLES.ES2.gl.glGetProgramInfoLog
+import func     OpenGLES.ES2.gl.glGetProgramiv
+import func     OpenGLES.ES2.gl.glGetUniformLocation
+import func     OpenGLES.ES2.gl.glLinkProgram
+import func     OpenGLES.ES2.gl.glGetShaderInfoLog
+import func     OpenGLES.ES2.gl.glGetShaderiv
+import func     OpenGLES.ES2.gl.glShaderSource
+import func     OpenGLES.ES2.gl.glUseProgram
+import func     OpenGLES.ES2.gl.glVertexAttribPointer
+import var      OpenGLES.ES2.gl.GL_ARRAY_BUFFER
+import var      OpenGLES.ES2.gl.GL_BLEND
+import var      OpenGLES.ES2.gl.GL_COLOR_BUFFER_BIT
+import var      OpenGLES.ES2.gl.GL_COMPILE_STATUS
+import var      OpenGLES.ES2.gl.GL_DEPTH_TEST
+import var      OpenGLES.ES2.gl.GL_ELEMENT_ARRAY_BUFFER
+import var      OpenGLES.ES2.gl.GL_FALSE
+import var      OpenGLES.ES2.gl.GL_FLOAT
+import var      OpenGLES.ES2.gl.GL_FRAGMENT_SHADER
+import var      OpenGLES.ES2.gl.GL_INFO_LOG_LENGTH
+import var      OpenGLES.ES2.gl.GL_LEQUAL
+import var      OpenGLES.ES2.gl.GL_LINK_STATUS
+import var      OpenGLES.ES2.gl.GL_ONE_MINUS_SRC_ALPHA
+import var      OpenGLES.ES2.gl.GL_SRC_ALPHA
+import var      OpenGLES.ES2.gl.GL_STATIC_DRAW
+import var      OpenGLES.ES2.gl.GL_TRIANGLE_STRIP
+import var      OpenGLES.ES2.gl.GL_VERTEX_SHADER
+import struct   OpenGLES.ES2.gl.GLbitfield
+import struct   OpenGLES.ES2.gl.GLboolean
+import struct   OpenGLES.gltypes.GLchar
+import struct   OpenGLES.gltypes.GLfloat
+import struct   OpenGLES.gltypes.GLint
+import struct   OpenGLES.gltypes.GLsizei
+import struct   OpenGLES.gltypes.GLubyte
+import struct   OpenGLES.gltypes.GLuint
+import class    UIKit.UIColor.UIColor
 
 /// Base shader class.
 internal class BaseShader {
@@ -101,8 +101,7 @@ internal class BaseShader {
         
         didSet {
             
-            self.resolution = CGSize(width: self.renderingRect.width * self.renderingScale, height: self.renderingRect.height * self.renderingScale)
-            self.center = self.resolution.asCGPoint * CGFloat(0.5)
+            self.updateResolutionAndCenter()
         }
     }
     
@@ -110,8 +109,7 @@ internal class BaseShader {
         
         didSet {
             
-            self.resolution = CGSize(width: self.renderingRect.width * self.renderingScale, height: self.renderingRect.height * self.renderingScale)
-            self.center = self.resolution.asCGPoint * CGFloat(0.5)
+            self.updateResolutionAndCenter()
         }
     }
     
@@ -300,6 +298,14 @@ internal class BaseShader {
             guard self.readyToBeUsed && self.backgroundColorComponents != oldValue else { return }
             glClearColor(self.backgroundColorComponents[0], self.backgroundColorComponents[1], self.backgroundColorComponents[2], self.backgroundColorComponents[3])
         }
+    }
+    
+    // MARK: Methods
+    
+    private func updateResolutionAndCenter() {
+        
+        self.resolution = self.renderingRect.size * self.renderingScale
+        self.center     = 0.5 * self.resolution.asCGPoint
     }
 }
 

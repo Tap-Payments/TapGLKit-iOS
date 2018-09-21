@@ -5,15 +5,15 @@
 //  Copyright © 2018 Tap Payments. All rights reserved.
 //
 
-import struct CoreGraphics.CGGeometry.CGRect
-import class GLKit.GLKView.GLKView
+import struct   CoreGraphics.CGGeometry.CGRect
+import class    GLKit.GLKView.GLKView
 import protocol GLKit.GLKView.GLKViewDelegate
-import class OpenGLES.EAGL.EAGLContext
-import class QuartzCore.CADisplayLink.CADisplayLink
-import class UIKit.UIApplication.UIApplication
-import class UIKit.UIColor.UIColor
-import class UIKit.UIView.UIView
-import class UIKit.UIWindow.UIWindow
+import class    OpenGLES.EAGL.EAGLContext
+import class    QuartzCore.CADisplayLink.CADisplayLink
+import class    UIKit.UIApplication.UIApplication
+import class    UIKit.UIColor.UIColor
+import class    UIKit.UIView.UIView
+import class    UIKit.UIWindow.UIWindow
 
 /// Base abstract class for GL views.
 public class BaseGLView: GLKView {
@@ -233,13 +233,13 @@ public class BaseGLView: GLKView {
         if self.drawsDynamically {
             
             self.displayLink = CADisplayLink(target: self, selector: #selector(render(_:)))
-            self.displayLink?.add(to: RunLoop.current, forMode: .commonModes)
+            self.displayLink?.add(to: .current, forMode: .common)
         }
         else {
             
             self.render(nil)
             
-            NotificationCenter.default.addObserver(forName: .UIApplicationDidBecomeActive, object: nil, queue: OperationQueue.main) { [weak self] (notification) in
+            NotificationCenter.default.addObserver(forName: UIApplication.didBecomeActiveNotification, object: nil, queue: .main) { [weak self] (notification) in
                 
                 self?.render(nil)
             }

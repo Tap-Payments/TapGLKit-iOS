@@ -344,7 +344,7 @@
 					A46897B91E1E454B00EC105B = {
 						CreatedOnToolsVersion = 8.2.1;
 						DevelopmentTeam = G46S76PUH4;
-						LastSwiftMigration = 0820;
+						LastSwiftMigration = 1000;
 						ProvisioningStyle = Automatic;
 					};
 					A46897C81E1E45A500EC105B = {
@@ -653,7 +653,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 			};
 			name = Debug;
 		};
@@ -675,7 +675,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.tappayments.TapGLKit;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 			};
 			name = Release;
 		};
