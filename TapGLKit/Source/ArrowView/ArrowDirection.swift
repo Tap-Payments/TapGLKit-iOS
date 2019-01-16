@@ -2,7 +2,7 @@
 //  ArrowDirection.swift
 //  TapGLKit/ArrowView
 //
-//  Copyright © 2018 Tap Payments. All rights reserved.
+//  Copyright © 2019 Tap Payments. All rights reserved.
 //
 
 import struct CoreGraphics.CGGeometry.CGPoint
@@ -61,7 +61,7 @@ public enum ArrowDirection: Int {
     /// - Returns: Suggested arrow direction.
     public static func suggested(for targetRect: CGRect) -> ArrowDirection {
         
-        let rectCenter = targetRect.center
+        let rectCenter = targetRect.tap_center
         
         let width = UIScreen.main.bounds.width
         let height = UIScreen.main.bounds.height
@@ -85,7 +85,7 @@ public enum ArrowDirection: Int {
             
             return .leftToRight
         }
-        else if Triangle(a: oneThird.asCGPoint, b: CGPoint(x: 0.0, y: oneThird.height), c: .zero).contains(point: rectCenter) {
+        else if Triangle(a: oneThird.tap_asCGPoint, b: CGPoint(x: 0.0, y: oneThird.height), c: .zero).contains(point: rectCenter) {
             
             return .bottomRightToLeftTop
         }
@@ -93,7 +93,7 @@ public enum ArrowDirection: Int {
             
             return .bottomLeftToRightTop
         }
-        else if Triangle(a: oneThird.asCGPoint, b: CGPoint(x: oneThird.width, y: 0.0), c: .zero).contains(point: rectCenter) {
+        else if Triangle(a: oneThird.tap_asCGPoint, b: CGPoint(x: oneThird.width, y: 0.0), c: .zero).contains(point: rectCenter) {
             
             return .bottomRightToTopLeft
         }
@@ -105,7 +105,7 @@ public enum ArrowDirection: Int {
             
             return .topRightToLeftBottom
         }
-        else if Triangle(a: twoThirds.asCGPoint, b: CGPoint(x: width, y: twoThirds.height), c: CGPoint(x: width, y: height)).contains(point: rectCenter) {
+        else if Triangle(a: twoThirds.tap_asCGPoint, b: CGPoint(x: width, y: twoThirds.height), c: CGPoint(x: width, y: height)).contains(point: rectCenter) {
             
             return .topLeftToRightBottom
         }
@@ -113,7 +113,7 @@ public enum ArrowDirection: Int {
             
             return .bottomLeftToTopRight
         }
-        else if Triangle(a: twoThirds.asCGPoint, b: CGPoint(x: twoThirds.width, y: height), c: CGPoint(x: width, y: height)).contains(point: rectCenter) {
+        else if Triangle(a: twoThirds.tap_asCGPoint, b: CGPoint(x: twoThirds.width, y: height), c: CGPoint(x: width, y: height)).contains(point: rectCenter) {
             
             return .topLeftToBottomRight
         }

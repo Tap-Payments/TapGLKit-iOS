@@ -2,7 +2,7 @@
 //  RadialGradientShader.swift
 //  TapGLKit/RadialGradientView
 //
-//  Copyright © 2018 Tap Payments. All rights reserved.
+//  Copyright © 2019 Tap Payments. All rights reserved.
 //
 
 import func OpenGLES.ES2.gl.glGetUniformLocation
@@ -21,11 +21,11 @@ internal class RadialGradientShader: BaseShader {
         
         get {
             
-            return UIColor(glComponents: self.centerColorComponents)!
+            return UIColor(tap_glComponents: self.centerColorComponents)!
         }
         set {
             
-            if let components = newValue.glComponents {
+            if let components = newValue.tap_glComponents {
                 
                 self.centerColorComponents = components
             }
@@ -37,11 +37,11 @@ internal class RadialGradientShader: BaseShader {
         
         get {
             
-            return UIColor(glComponents: self.cornerColorComponents)!
+            return UIColor(tap_glComponents: self.cornerColorComponents)!
         }
         set {
             
-            if let components = newValue.glComponents {
+            if let components = newValue.tap_glComponents {
                 
                 self.cornerColorComponents = components
             }
@@ -83,7 +83,7 @@ internal class RadialGradientShader: BaseShader {
     
     // MARK: Properties
     
-    private var centerColorComponents: [GLfloat] = UIColor.white.glComponents! {
+    private var centerColorComponents: [GLfloat] = UIColor.white.tap_glComponents! {
         
         didSet {
             
@@ -92,7 +92,7 @@ internal class RadialGradientShader: BaseShader {
         }
     }
     
-    private var cornerColorComponents: [GLfloat] = UIColor.black.glComponents! {
+    private var cornerColorComponents: [GLfloat] = UIColor.black.tap_glComponents! {
         
         didSet {
             
@@ -113,7 +113,7 @@ private let shaderSource: ShaderSource = {
 //
 //  TapGLKit/RadialGradientView
 //
-//  Copyright © 2018 Tap Payments. All rights reserved.
+//  Copyright © 2019 Tap Payments. All rights reserved.
 //
 
 attribute highp vec2 position;
@@ -131,7 +131,7 @@ void main(void) {
 //
 //  TapGLKit/RadialGradientView
 //
-//  Copyright © 2018 Tap Payments. All rights reserved.
+//  Copyright © 2019 Tap Payments. All rights reserved.
 //
 
 uniform highp vec2 resolution;

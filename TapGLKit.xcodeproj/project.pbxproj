@@ -419,7 +419,7 @@
 			files = (
 			);
 			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-TapGLKitExample/Pods-TapGLKitExample-frameworks.sh",
+				"${PODS_ROOT}/Target Support Files/Pods-TapGLKitExample/Pods-TapGLKitExample-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/TapAdditionsKit/TapAdditionsKit.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
@@ -428,7 +428,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-TapGLKitExample/Pods-TapGLKitExample-frameworks.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-TapGLKitExample/Pods-TapGLKitExample-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		DB2F2BA4D268ACB1A3584FF1 /* [CP] Check Pods Manifest.lock */ = {

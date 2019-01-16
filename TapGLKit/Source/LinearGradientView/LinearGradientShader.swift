@@ -2,7 +2,7 @@
 //  LinearGradientShader.swift
 //  TapGLKit/LinearGradientView
 //
-//  Copyright © 2018 Tap Payments. All rights reserved.
+//  Copyright © 2019 Tap Payments. All rights reserved.
 //
 
 import func OpenGLES.ES2.gl.glGetUniformLocation
@@ -20,11 +20,11 @@ internal class LinearGradientShader: BaseShader {
         
         get {
             
-            return UIColor(glComponents: self.firstColorComponents)!
+            return UIColor(tap_glComponents: self.firstColorComponents)!
         }
         set {
             
-            if let components = newValue.glComponents {
+            if let components = newValue.tap_glComponents {
                 
                 self.firstColorComponents = components
             }
@@ -35,11 +35,11 @@ internal class LinearGradientShader: BaseShader {
         
         get {
             
-            return UIColor(glComponents: self.secondColorComponents)!
+            return UIColor(tap_glComponents: self.secondColorComponents)!
         }
         set {
             
-            if let components = newValue.glComponents {
+            if let components = newValue.tap_glComponents {
                 
                 self.secondColorComponents = components
             }
@@ -93,7 +93,7 @@ internal class LinearGradientShader: BaseShader {
     
     //MARK: Properties
     
-    private var firstColorComponents:  [GLfloat] = UIColor.black.glComponents! {
+    private var firstColorComponents:  [GLfloat] = UIColor.black.tap_glComponents! {
         
         didSet {
             
@@ -102,7 +102,7 @@ internal class LinearGradientShader: BaseShader {
         }
     }
     
-    private var secondColorComponents: [GLfloat] = UIColor.black.glComponents! {
+    private var secondColorComponents: [GLfloat] = UIColor.black.tap_glComponents! {
         
         didSet {
             
@@ -124,7 +124,7 @@ private let shaderSource: ShaderSource = {
 //
 //  TapGLKit/LinearGradientView
 //
-//  Copyright © 2018 Tap Payments. All rights reserved.
+//  Copyright © 2019 Tap Payments. All rights reserved.
 //
 
 attribute highp vec2 position;
@@ -142,7 +142,7 @@ void main(void) {
 //
 //  TapGLKit/LinearGradientView
 //
-//  Copyright © 2018 Tap Payments. All rights reserved.
+//  Copyright © 2019 Tap Payments. All rights reserved.
 //
 
 uniform highp vec2 resolution;

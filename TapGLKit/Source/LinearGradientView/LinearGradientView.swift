@@ -2,7 +2,7 @@
 //  LinearGradientView.swift
 //  TapGLKit/LinearGradientView
 //
-//  Copyright © 2018 Tap Payments. All rights reserved.
+//  Copyright © 2019 Tap Payments. All rights reserved.
 //
 
 import struct CoreGraphics.CGBase.CGFloat
@@ -65,8 +65,8 @@ import class UIKit.UIColor.UIColor
         
         guard self.bounds.contains(point) else { return nil }
         
-        guard let firstColorComponents = self.firstColor.rgbaComponents else { return nil }
-        guard let secondColorComponents = self.secondColor.rgbaComponents else { return nil }
+        guard let firstColorComponents = self.firstColor.tap_rgbaComponents else { return nil }
+        guard let secondColorComponents = self.secondColor.tap_rgbaComponents else { return nil }
         
         let progress = self.gradientDirection == .leftToRight ? point.x / self.bounds.width : point.y / self.bounds.height
         
@@ -76,7 +76,7 @@ import class UIKit.UIColor.UIColor
             resultComponents.append(firstColorComponents[index] + (secondColorComponents[index] - firstColorComponents[index]) * progress)
         }
         
-        return UIColor(rgba: resultComponents)
+        return UIColor(tap_rgba: resultComponents)
     }
     
     //MARK: - Internal -

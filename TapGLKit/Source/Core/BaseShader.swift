@@ -2,10 +2,8 @@
 //  BaseShader.swift
 //  TapGLKit/Core
 //
-//  Copyright © 2018 Tap Payments. All rights reserved.
+//  Copyright © 2019 Tap Payments. All rights reserved.
 //
-
-import          TapAdditionsKit
 
 import struct   CoreGraphics.CGBase.CGFloat
 import struct   CoreGraphics.CGGeometry.CGPoint
@@ -65,6 +63,7 @@ import struct   OpenGLES.gltypes.GLint
 import struct   OpenGLES.gltypes.GLsizei
 import struct   OpenGLES.gltypes.GLubyte
 import struct   OpenGLES.gltypes.GLuint
+import struct	TapAdditionsKit.MemoryLayoutAdditions
 import class    UIKit.UIColor.UIColor
 
 /// Base shader class.
@@ -75,7 +74,7 @@ internal class BaseShader {
     
     internal class var source: ShaderSource {
         
-        return ShaderSource(vertex: "", fragment: "")
+        return ShaderSource(vertex: .tap_empty, fragment: .tap_empty)
     }
     
     internal var context: EAGLContext
@@ -86,11 +85,11 @@ internal class BaseShader {
         
         get {
             
-            return UIColor(glComponents: self.backgroundColorComponents)!
+            return UIColor(tap_glComponents: self.backgroundColorComponents)!
         }
         set {
             
-            if let components = newValue.glComponents {
+            if let components = newValue.tap_glComponents {
                 
                 self.backgroundColorComponents = components
             }
@@ -118,7 +117,7 @@ internal class BaseShader {
         didSet {
             
             guard self.readyToBeUsed && self.resolution != oldValue && self.resolution != .zero else { return }
-            self.setVec2(self.resolution.asVec2, to: self.resolutionUniform)
+            self.setVec2(self.resolution.tap_asVec2, to: self.resolutionUniform)
         }
     }
     
@@ -127,7 +126,7 @@ internal class BaseShader {
         didSet {
             
             guard self.readyToBeUsed && self.center != oldValue && self.center != .zero else { return }
-            self.setVec2(self.center.asVec2, to: self.centerUniform)
+            self.setVec2(self.center.tap_asVec2, to: self.centerUniform)
         }
     }
     
@@ -168,7 +167,7 @@ internal class BaseShader {
             
             var messages = [GLchar](repeating: 0, count: 1024)
             
-            let size = 1024 * MemoryLayoutAdditions.sizeof(GLchar.self)
+            let size = 1024 * MemoryLayoutAdditions.tap_sizeof(GLchar.self)
             glGetProgramInfoLog(programHandle, GLsizei(size), nil, &messages)
             
             print("error linking gl program: \(String(cString: messages))")
@@ -215,19 +214,19 @@ internal class BaseShader {
         glGenBuffers(1, &vertexBuffer)
         glBindBuffer(GLenum(GL_ARRAY_BUFFER), vertexBuffer)
         
-        let quadSize = MemoryLayoutAdditions.sizeof(Constants.shaderQuad)
+        let quadSize = MemoryLayoutAdditions.tap_sizeof(Constants.shaderQuad)
         glBufferData(GLenum(GL_ARRAY_BUFFER), quadSize, Constants.shaderQuad, GLenum(GL_STATIC_DRAW))
         
         var indicesBuffer: GLuint = 0
         glGenBuffers(1, &indicesBuffer)
         glBindBuffer(GLenum(GL_ELEMENT_ARRAY_BUFFER), indicesBuffer)
         
-        let indicesSize = MemoryLayoutAdditions.sizeof(Constants.shaderIndices)
+        let indicesSize = MemoryLayoutAdditions.tap_sizeof(Constants.shaderIndices)
         glBufferData(GLenum(GL_ELEMENT_ARRAY_BUFFER), indicesSize, Constants.shaderIndices, GLenum(GL_STATIC_DRAW))
         
         glEnableVertexAttribArray(GLuint(self.positionAttribute))
         
-        let doubleQuadSize = 2 * MemoryLayoutAdditions.sizeof(Constants.shaderQuad[0])
+        let doubleQuadSize = 2 * MemoryLayoutAdditions.tap_sizeof(Constants.shaderQuad[0])
         glVertexAttribPointer(GLuint(self.positionAttribute), 2, GLenum(GL_FLOAT), GLboolean(GL_FALSE), GLsizei(doubleQuadSize), UnsafeRawPointer(bitPattern: 0))
         
         glDisable(GLenum(GL_DEPTH_TEST))
@@ -248,8 +247,8 @@ internal class BaseShader {
         
         glClearColor(self.backgroundColorComponents[0], self.backgroundColorComponents[1], self.backgroundColorComponents[2], self.backgroundColorComponents[3])
         
-        self.setVec2(self.resolution.asVec2, to: self.resolutionUniform)
-        self.setVec2(self.center.asVec2, to: self.centerUniform)
+        self.setVec2(self.resolution.tap_asVec2, to: self.resolutionUniform)
+        self.setVec2(self.center.tap_asVec2, to: self.centerUniform)
     }
     
     internal func render() {
@@ -291,7 +290,7 @@ internal class BaseShader {
     private var resolutionUniform: GLint!
     private var centerUniform: GLint!
     
-    private var backgroundColorComponents: [GLfloat] = UIColor.clear.glComponents! {
+    private var backgroundColorComponents: [GLfloat] = UIColor.clear.tap_glComponents! {
         
         didSet {
             
@@ -304,8 +303,8 @@ internal class BaseShader {
     
     private func updateResolutionAndCenter() {
         
-        self.resolution = self.renderingRect.size * self.renderingScale
-        self.center     = 0.5 * self.resolution.asCGPoint
+		self.resolution = CGSize(width: self.renderingScale * self.renderingRect.size.width, height: self.renderingScale * self.renderingRect.size.height)
+		self.center     = CGPoint(x: 0.5 * self.resolution.width, y: 0.5 * self.resolution.height)
     }
 }
 

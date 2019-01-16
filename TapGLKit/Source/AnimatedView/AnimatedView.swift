@@ -2,14 +2,14 @@
 //  AnimatedView.swift
 //  TapGLKit/AnimatedView
 //
-//  Copyright © 2018 Tap Payments. All rights reserved.
+//  Copyright © 2019 Tap Payments. All rights reserved.
 //
 
-import struct CoreGraphics.CGBase.CGFloat
-import struct CoreGraphics.CGGeometry.CGRect
-import class GLKit.GLKView
-import func QuartzCore.CABase.CACurrentMediaTime
-import func TapAdditionsKit.clamp
+import struct	CoreGraphics.CGBase.CGFloat
+import struct	CoreGraphics.CGGeometry.CGRect
+import class	GLKit.GLKView
+import func		QuartzCore.CABase.CACurrentMediaTime
+import func		TapAdditionsKit.tap_clamp
 
 /// Base class for animated GL views.
 public class AnimatedView: BaseGLView {
@@ -144,7 +144,7 @@ public class AnimatedView: BaseGLView {
         
         if !self.isEndless {
             
-            drawingTime = clamp(value: drawingTime, low: 0.0, high: self.animationDuration)
+            drawingTime = tap_clamp(value: drawingTime, low: 0.0, high: self.animationDuration)
         }
         
         self.animatedShader?.time = drawingTime

@@ -2,7 +2,7 @@
 //  TapActivityIndicatorShader.swift
 //  TapGLKit/TapActivityIndicatorView
 //
-//  Copyright © 2018 Tap Payments. All rights reserved.
+//  Copyright © 2019 Tap Payments. All rights reserved.
 //
 
 import TapAdditionsKit
@@ -70,11 +70,11 @@ internal class TapActivityIndicatorShader: AnimatedShader {
         
         get {
             
-            return UIColor(glComponents: self.outterColorComponents)!
+            return UIColor(tap_glComponents: self.outterColorComponents)!
         }
         set {
             
-            if let components = newValue.glComponents {
+            if let components = newValue.tap_glComponents {
                 
                 self.outterColorComponents = components
             }
@@ -86,11 +86,11 @@ internal class TapActivityIndicatorShader: AnimatedShader {
         
         get {
             
-            return UIColor(glComponents: self.innerColorComponents)!
+            return UIColor(tap_glComponents: self.innerColorComponents)!
         }
         set {
             
-            if let components = newValue.glComponents {
+            if let components = newValue.tap_glComponents {
                 
                 self.innerColorComponents = components
             }
@@ -392,22 +392,22 @@ internal class TapActivityIndicatorShader: AnimatedShader {
         case .growing:
             
             let progress = self.timeOffset / self.animationTimings[0]
-            return interpolate(start: Constants.defaultColors[0], finish: Constants.defaultColors[1], progress: progress)
+            return tap_interpolate(start: Constants.defaultColors[0], finish: Constants.defaultColors[1], progress: progress)
             
         case .staticBig:
             
             let progress = (self.timeOffset - self.animationTimings[0]) / (self.animationTimings[1] - self.animationTimings[0])
-            return interpolate(start: Constants.defaultColors[1], finish: Constants.defaultColors[2], progress: progress)
+            return tap_interpolate(start: Constants.defaultColors[1], finish: Constants.defaultColors[2], progress: progress)
             
         case .shrinking:
             
             let progress = (self.timeOffset - self.animationTimings[1]) / (self.animationTimings[2] - self.animationTimings[1])
-            return interpolate(start: Constants.defaultColors[2], finish: Constants.defaultColors[3], progress: progress)
+            return tap_interpolate(start: Constants.defaultColors[2], finish: Constants.defaultColors[3], progress: progress)
             
         case .staticSmall:
             
             let progress = (self.timeOffset - self.animationTimings[2]) / (self.animationTimings[3] - self.animationTimings[2])
-            return interpolate(start: Constants.defaultColors[3], finish: Constants.defaultColors[0], progress: progress)
+            return tap_interpolate(start: Constants.defaultColors[3], finish: Constants.defaultColors[0], progress: progress)
         }
     }
 }
@@ -420,7 +420,7 @@ private let shaderSource: ShaderSource = {
 //
 //  TapGLKit/TapActivityIndicatorView
 //
-//  Copyright © 2018 Tap Payments. All rights reserved.
+//  Copyright © 2019 Tap Payments. All rights reserved.
 //
 
 attribute highp vec2 position;
@@ -438,7 +438,7 @@ void main(void) {
 //
 //  TapGLKit/TapActivityIndicatorView
 //
-//  Copyright © 2018 Tap Payments. All rights reserved.
+//  Copyright © 2019 Tap Payments. All rights reserved.
 //
 
 #define M_PI 3.1415926535897932384626433832795

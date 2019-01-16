@@ -2,13 +2,13 @@
 //  QuadGradientShader.swift
 //  TapGLKit/QuadGradientView
 //
-//  Copyright © 2018 Tap Payments. All rights reserved.
+//  Copyright © 2019 Tap Payments. All rights reserved.
 //
 
-import func OpenGLES.ES2.gl.glGetUniformLocation
-import struct OpenGLES.ES2.gl.GLfloat
-import struct OpenGLES.ES2.gl.GLint
-import class UIKit.UIColor.UIColor
+import func		OpenGLES.ES2.gl.glGetUniformLocation
+import struct	OpenGLES.ES2.gl.GLfloat
+import struct	OpenGLES.ES2.gl.GLint
+import class	UIKit.UIColor.UIColor
 
 /// Quad Gradient shader.
 internal class QuadGradientShader: BaseShader {
@@ -20,11 +20,11 @@ internal class QuadGradientShader: BaseShader {
         
         get {
             
-            return UIColor(glComponents: self.topLeftColorComponents)!
+            return UIColor(tap_glComponents: self.topLeftColorComponents)!
         }
         set {
             
-            if let components = newValue.glComponents {
+            if let components = newValue.tap_glComponents {
                 
                 self.topLeftColorComponents = components
             }
@@ -35,11 +35,11 @@ internal class QuadGradientShader: BaseShader {
         
         get {
             
-            return UIColor(glComponents: self.topRightColorComponents)!
+            return UIColor(tap_glComponents: self.topRightColorComponents)!
         }
         set {
             
-            if let components = newValue.glComponents {
+            if let components = newValue.tap_glComponents {
                 
                 self.topRightColorComponents = components
             }
@@ -50,11 +50,11 @@ internal class QuadGradientShader: BaseShader {
         
         get {
             
-            return UIColor(glComponents: self.bottomLeftColorComponents)!
+            return UIColor(tap_glComponents: self.bottomLeftColorComponents)!
         }
         set {
             
-            if let components = newValue.glComponents {
+            if let components = newValue.tap_glComponents {
                 
                 self.bottomLeftColorComponents = components
             }
@@ -65,11 +65,11 @@ internal class QuadGradientShader: BaseShader {
         
         get {
             
-            return UIColor(glComponents: self.bottomRightColorComponents)!
+            return UIColor(tap_glComponents: self.bottomRightColorComponents)!
         }
         set {
             
-            if let components = newValue.glComponents {
+            if let components = newValue.tap_glComponents {
                 
                 self.bottomRightColorComponents = components
             }
@@ -117,7 +117,7 @@ internal class QuadGradientShader: BaseShader {
     
     //MARK: Properties
     
-    private var topLeftColorComponents: [GLfloat] = UIColor.black.glComponents! {
+    private var topLeftColorComponents: [GLfloat] = UIColor.black.tap_glComponents! {
         
         didSet {
             
@@ -126,7 +126,7 @@ internal class QuadGradientShader: BaseShader {
         }
     }
     
-    private var topRightColorComponents: [GLfloat] = UIColor.black.glComponents! {
+    private var topRightColorComponents: [GLfloat] = UIColor.black.tap_glComponents! {
         
         didSet {
             
@@ -135,7 +135,7 @@ internal class QuadGradientShader: BaseShader {
         }
     }
     
-    private var bottomLeftColorComponents: [GLfloat] = UIColor.black.glComponents! {
+    private var bottomLeftColorComponents: [GLfloat] = UIColor.black.tap_glComponents! {
         
         didSet {
             
@@ -144,7 +144,7 @@ internal class QuadGradientShader: BaseShader {
         }
     }
     
-    private var bottomRightColorComponents: [GLfloat] = UIColor.black.glComponents! {
+    private var bottomRightColorComponents: [GLfloat] = UIColor.black.tap_glComponents! {
         
         didSet {
             
@@ -167,7 +167,7 @@ private let shaderSource: ShaderSource = {
 //
 //  TapGLKit/QuadGradientView
 //
-//  Copyright © 2018 Tap Payments. All rights reserved.
+//  Copyright © 2019 Tap Payments. All rights reserved.
 //
 
 attribute highp vec2 position;
@@ -185,7 +185,7 @@ void main(void) {
 //
 //  TapGLKit/QuadGradientView
 //
-//  Copyright © 2018 Tap Payments. All rights reserved.
+//  Copyright © 2019 Tap Payments. All rights reserved.
 //
 
 uniform highp vec2 resolution;

@@ -2,7 +2,7 @@
 //  ArrowShader.swift
 //  TapGLKit/ArrowView
 //
-//  Copyright © 2018 Tap Payments. All rights reserved.
+//  Copyright © 2019 Tap Payments. All rights reserved.
 //
 
 import struct CoreGraphics.CGBase.CGFloat
@@ -23,11 +23,11 @@ internal class ArrowShader: AnimatedShader {
         
         get {
             
-            return UIColor(glComponents: self.colorComponents)!
+            return UIColor(tap_glComponents: self.colorComponents)!
         }
         set {
             
-            if let components = newValue.glComponents {
+            if let components = newValue.tap_glComponents {
                 
                 self.colorComponents = components
             }
@@ -154,13 +154,13 @@ internal class ArrowShader: AnimatedShader {
         self.setFloat(GLfloat(self.renderingThickness), to: self.thicknessUniform)
         self.setInt(self.straight ? 1 : 0, to: self.straightUniform)
         self.setFloat(GLfloat(self.maximalAllowedDrawingDistanceSquared), to: self.maximalAllowedDrawingDistanceSquaredUniform)
-        self.setVec2(self.startDrawingPoint.asVec2, to: self.startDrawingPointUniform)
+        self.setVec2(self.startDrawingPoint.tap_asVec2, to: self.startDrawingPointUniform)
         self.setVec2Array(self.arrowHeadTriangleCoordinates, to: self.arrowHeadTriangleCoordinatesUniform)
-        self.setVec2(self.straightArrowStartPoint.asVec2, to: self.straightArrowStartPointUniform)
-        self.setVec2(self.arrowEndPoint.asVec2, to: self.arrowEndPointUniform)
+        self.setVec2(self.straightArrowStartPoint.tap_asVec2, to: self.straightArrowStartPointUniform)
+        self.setVec2(self.arrowEndPoint.tap_asVec2, to: self.arrowEndPointUniform)
         self.setFloat(GLfloat(self.roundedArrowRadius), to: self.roundedArrowCircleCenterUniform)
-        self.setVec2(self.roundedArrowCircleCenter.asVec2, to: self.roundedArrowCircleCenterUniform)
-        self.setVec2(self.roundedArrowDrawingSegment.asVec2, to: self.roundedArrowDrawingSegmentUniform)
+        self.setVec2(self.roundedArrowCircleCenter.tap_asVec2, to: self.roundedArrowCircleCenterUniform)
+        self.setVec2(self.roundedArrowDrawingSegment.tap_asVec2, to: self.roundedArrowDrawingSegmentUniform)
         self.setVec2Array(self.roundedArrowStraightSegmentCoordinates, to: self.roundedArrowStraightSegmentCoordinatesUniform)
     }
     
@@ -203,7 +203,7 @@ internal class ArrowShader: AnimatedShader {
         }
     }
     
-    private var colorComponents: [GLfloat] = UIColor.white.glComponents! {
+    private var colorComponents: [GLfloat] = UIColor.white.tap_glComponents! {
         
         didSet {
             
@@ -240,7 +240,7 @@ internal class ArrowShader: AnimatedShader {
         didSet {
             
             guard self.readyToBeUsed && self.startDrawingPoint != oldValue else { return }
-            self.setVec2(self.startDrawingPoint.asVec2, to: self.startDrawingPointUniform)
+            self.setVec2(self.startDrawingPoint.tap_asVec2, to: self.startDrawingPointUniform)
         }
     }
     
@@ -260,7 +260,7 @@ internal class ArrowShader: AnimatedShader {
         didSet {
             
             guard self.readyToBeUsed && self.straightArrowStartPoint != oldValue else { return }
-            self.setVec2(self.straightArrowStartPoint.asVec2, to: self.straightArrowStartPointUniform)
+            self.setVec2(self.straightArrowStartPoint.tap_asVec2, to: self.straightArrowStartPointUniform)
         }
     }
     
@@ -269,7 +269,7 @@ internal class ArrowShader: AnimatedShader {
         didSet {
             
             guard self.readyToBeUsed && self.arrowEndPoint != oldValue else { return }
-            self.setVec2(self.arrowEndPoint.asVec2, to: self.arrowEndPointUniform)
+            self.setVec2(self.arrowEndPoint.tap_asVec2, to: self.arrowEndPointUniform)
         }
     }
     
@@ -287,7 +287,7 @@ internal class ArrowShader: AnimatedShader {
         didSet {
             
             guard self.readyToBeUsed && self.roundedArrowCircleCenter != oldValue else { return }
-            self.setVec2(self.roundedArrowCircleCenter.asVec2, to: self.roundedArrowCircleCenterUniform)
+            self.setVec2(self.roundedArrowCircleCenter.tap_asVec2, to: self.roundedArrowCircleCenterUniform)
         }
     }
     
@@ -299,7 +299,7 @@ internal class ArrowShader: AnimatedShader {
         didSet {
             
             guard self.readyToBeUsed && self.roundedArrowDrawingSegment != oldValue else { return }
-            self.setVec2(self.roundedArrowDrawingSegment.asVec2, to: self.roundedArrowDrawingSegmentUniform)
+            self.setVec2(self.roundedArrowDrawingSegment.tap_asVec2, to: self.roundedArrowDrawingSegmentUniform)
         }
     }
     
@@ -351,11 +351,11 @@ internal class ArrowShader: AnimatedShader {
         let backPoint1Offset = CGPoint(x: -3.0 * arrowTopOffset, y: -2.0 * self.renderingThickness)
         let backPoint2Offset = CGPoint(x: -3.0 * arrowTopOffset, y: 2.0 * self.renderingThickness)
         
-        let angle = self.normalizedEndArrowDirection.angle
+        let angle = self.normalizedEndArrowDirection.tap_angle
         
-        let headCoordinate = self.arrowEndPoint.add(topPointOffset.rotated(on: angle))
-        let backCoordinate1 = self.arrowEndPoint.add(backPoint1Offset.rotated(on: angle))
-        let backCoordinate2 = self.arrowEndPoint.add(backPoint2Offset.rotated(on: angle))
+        let headCoordinate = self.arrowEndPoint.tap_add(topPointOffset.tap_rotated(on: angle))
+        let backCoordinate1 = self.arrowEndPoint.tap_add(backPoint1Offset.tap_rotated(on: angle))
+        let backCoordinate2 = self.arrowEndPoint.tap_add(backPoint2Offset.tap_rotated(on: angle))
         
         let cgArray = [
         
@@ -832,7 +832,7 @@ private let shaderSource: ShaderSource = {
 //
 //  TapGLKit/ArrowView
 //
-//  Copyright © 2018 Tap Payments. All rights reserved.
+//  Copyright © 2019 Tap Payments. All rights reserved.
 //
 
 attribute highp vec2 position;
@@ -850,7 +850,7 @@ void main(void) {
 //
 //  TapGLKit/ArrowView
 //
-//  Copyright © 2018 Tap Payments. All rights reserved.
+//  Copyright © 2019 Tap Payments. All rights reserved.
 //
 
 #define M_PI 3.1415926535897932384626433832795

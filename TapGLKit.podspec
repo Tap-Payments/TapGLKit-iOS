@@ -1,4 +1,4 @@
-TapAdditionsKitDependencyVersion = '1.1' unless defined? TapAdditionsKitDependencyVersion
+TapAdditionsKitDependencyVersion = '>= 1.2' unless defined? TapAdditionsKitDependencyVersion
 
 Pod::Spec.new do |tapGLKit|
     
@@ -8,7 +8,7 @@ Pod::Spec.new do |tapGLKit|
     tapGLKit.name                   = 'TapGLKit'
     tapGLKit.summary                = 'Kit with GL views.'
     tapGLKit.requires_arc           = true
-    tapGLKit.version                = '1.0.1'
+    tapGLKit.version                = '1.0.2'
     tapGLKit.license                = { :type => 'MIT', :file => 'LICENSE' }
     tapGLKit.author                 = { 'Tap Payments' => 'hello@tap.company' }
     tapGLKit.homepage               = 'https://github.com/Tap-Payments/TapGLKit-iOS'

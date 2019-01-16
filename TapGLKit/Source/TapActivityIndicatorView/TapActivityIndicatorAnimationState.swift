@@ -2,7 +2,7 @@
 //  TapActivityIndicatorAnimationState.swift
 //  TapGLKit/TapActivityIndicatorView
 //
-//  Copyright © 2018 Tap Payments. All rights reserved.
+//  Copyright © 2019 Tap Payments. All rights reserved.
 //
 
 /// Activity Indicator Animation State.
