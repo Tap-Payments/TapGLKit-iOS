@@ -704,10 +704,12 @@ internal class ArrowShader: AnimatedShader {
         
         var horizontal: Bool
         var straightLength: CGFloat
-        
+		
+		let halfLines = 0.5 * self.renderingThickness + 2.0 * Constants.smoothingDistance
+		
         if self.normalizedEndArrowDirection.x != 0.0 {
-            
-            let possibleHorizontalLength = abs(self.resolution.width - self.arrowHeadLength - self.roundedArrowRadius - 0.5 * self.renderingThickness - 2.0 * Constants.smoothingDistance);
+			
+            let possibleHorizontalLength = abs(self.resolution.width - self.arrowHeadLength - self.roundedArrowRadius - halfLines)
             horizontal = possibleHorizontalLength >= Constants.epsilon
             
             if horizontal {
@@ -721,7 +723,7 @@ internal class ArrowShader: AnimatedShader {
         }
         else {
             
-            let possibleVerticalLength = self.resolution.height - self.arrowHeadLength - self.roundedArrowRadius - 0.5 * self.renderingThickness - 2.0 * Constants.smoothingDistance
+            let possibleVerticalLength = self.resolution.height - self.arrowHeadLength - self.roundedArrowRadius - halfLines
             horizontal = possibleVerticalLength < Constants.epsilon
             
             if horizontal {
