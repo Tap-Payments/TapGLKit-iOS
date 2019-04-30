@@ -198,7 +198,33 @@ public class BaseGLView: GLKView {
             }
         }
     }
-    
+	
+	private var runLoopMode: RunLoop.Mode {
+		
+		#if swift(>=4.2)
+		
+		return .common
+		
+		#else
+		
+		return .commonModes
+		
+		#endif
+	}
+	
+	private var applicationDidBecomeActiveNotificationName: Notification.Name {
+		
+		#if swift(>=4.2)
+		
+		return UIApplication.didBecomeActiveNotification
+		
+		#else
+		
+		return .UIApplicationDidBecomeActive
+		
+		#endif
+	}
+	
     //MARK: Methods
     
     private func applyContext(_ context: EAGLContext? = nil) {
@@ -233,13 +259,13 @@ public class BaseGLView: GLKView {
         if self.drawsDynamically {
             
             self.displayLink = CADisplayLink(target: self, selector: #selector(render(_:)))
-            self.displayLink?.add(to: .current, forMode: .common)
+            self.displayLink?.add(to: .current, forMode: self.runLoopMode)
         }
         else {
             
             self.render(nil)
             
-            NotificationCenter.default.addObserver(forName: UIApplication.didBecomeActiveNotification, object: nil, queue: .main) { [weak self] (notification) in
+            NotificationCenter.default.addObserver(forName: self.applicationDidBecomeActiveNotificationName, object: nil, queue: .main) { [weak self] (notification) in
                 
                 self?.render(nil)
             }
